@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "language": "vi",
+    "prompt_version": "v2",
+    "validator_type": "json_schema",
+    "schema_ref": "config/schema/extraction_schema.json",
+    "stage_order": [
+      "entity_relation",
+      "event_entity",
+      "event_relation"
+    ]
+  },
+  "entity_relation": {
+    "system_prompt": "Bạn là một trợ lý hữu ích, luôn trả lời bằng một mảng JSON hợp lệ và không kèm bất kỳ lời giải thích nào.",
+    "user_prompt_template": "Cho một đoạn văn, hãy tóm tắt tất cả các thực thể quan trọng và các quan hệ giữa chúng một cách ngắn gọn. Quan hệ chỉ nên mô tả ngắn gọn kết nối giữa các thực thể, không lặp lại thông tin đã có trong Head và Tail. Các thực thể cần cụ thể nhất có thể. Không coi đại từ là thực thể.\n\nBạn phải trả về đúng định dạng JSON sau:\n[\n  {\n    \"Head\": \"{một danh từ}\",\n    \"Relation\": \"{một động từ}\",\n    \"Tail\": \"{một danh từ}\"\n  }\n]\n\nĐây là đoạn văn:\n{{chunk_text}}",
+    "validator_type": "json_schema",
+    "output_schema_ref": "config/schema/extraction_schema.json#/definitions/entity_relation_items"
+  },
+  "event_entity": {
+    "system_prompt": "Bạn là một trợ lý hữu ích, luôn trả lời bằng một mảng JSON hợp lệ và không kèm bất kỳ lời giải thích nào.",
+    "user_prompt_template": "Hãy phân tích và tóm tắt quan hệ tham gia giữa các sự kiện và thực thể trong đoạn văn dưới đây. Mỗi sự kiện phải là một câu đơn độc lập. Đồng thời, hãy xác định tất cả các thực thể tham gia vào từng sự kiện. Không dùng dấu ba chấm.\n\nBạn phải trả về đúng định dạng JSON sau:\n[\n  {\n    \"Event\": \"{một câu đơn mô tả sự kiện}\",\n    \"Entity\": [\"thực thể 1\", \"thực thể 2\"]\n  }\n]\n\nĐây là đoạn văn:\n{{chunk_text}}",
+    "validator_type": "json_schema",
+    "output_schema_ref": "config/schema/extraction_schema.json#/definitions/event_entity_items"
+  },
+  "event_relation": {
+    "system_prompt": "Bạn là một trợ lý hữu ích, luôn trả lời bằng một mảng JSON hợp lệ và không kèm bất kỳ lời giải thích nào.",
+    "user_prompt_template": "Hãy phân tích và tóm tắt các quan hệ giữa các sự kiện trong đoạn văn dưới đây. Mỗi sự kiện phải là một câu đơn độc lập. Hãy xác định các quan hệ thời gian và nhân quả giữa các sự kiện, chỉ dùng các loại sau: before, after, at the same time, because, as a result. Mỗi bộ ba được trích xuất phải cụ thể, có ý nghĩa và có thể tự đứng độc lập. Không dùng dấu ba chấm.\n\nBạn phải trả về đúng định dạng JSON sau:\n[\n  {\n    \"Head\": \"{một câu đơn mô tả sự kiện 1}\",\n    \"Relation\": \"{quan hệ thời gian hoặc nhân quả giữa hai sự kiện}\",\n    \"Tail\": \"{một câu đơn mô tả sự kiện 2}\"\n  }\n]\n\nĐây là đoạn văn:\n{{chunk_text}}",
+    "validator_type": "json_schema",
+    "output_schema_ref": "config/schema/extraction_schema.json#/definitions/event_relation_items"
+  }
+}

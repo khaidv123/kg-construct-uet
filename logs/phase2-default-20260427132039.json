@@ -1,0 +1,344 @@
+{
+  "run_label": "phase2-default-20260427132039",
+  "started_ts": "2026-04-27T13:20:39.690501+00:00",
+  "ended_ts": "2026-04-27T13:20:39.690645+00:00",
+  "wall_seconds": 0.00013588694855570793,
+  "start_step": "ingest_documents",
+  "end_step": "compute_embeddings",
+  "limits": {
+    "ingest": 10,
+    "extraction": 100,
+    "concept": 100,
+    "embedding": 100
+  },
+  "dry_run": true,
+  "final_state": {
+    "INGEST_RUN_ID": "dryrun-ingest_documents",
+    "CLEAN_RUN_ID": "dryrun-clean_documents",
+    "CHUNK_RUN_ID": "dryrun-chunk_documents",
+    "EXTRACTION_REQUEST_RUN_ID": "dryrun-build_extraction_requests",
+    "EXTRACTION_RAW_RUN_ID": "dryrun-run_extraction",
+    "VALIDATE_EXTRACTION_RUN_ID": "dryrun-validate_extraction",
+    "GRAPH_BASE_RUN_ID": "dryrun-build_graph_base",
+    "NODE_CONTEXT_RUN_ID": "dryrun-build_node_context",
+    "CONCEPT_REQUEST_RUN_ID": "dryrun-build_concept_requests",
+    "CONCEPT_RAW_RUN_ID": "dryrun-run_concept_generation",
+    "VALIDATE_CONCEPT_RUN_ID": "dryrun-validate_concepts",
+    "MERGE_CONCEPT_RUN_ID": "dryrun-merge_concepts",
+    "EMBEDDING_RUN_ID": "dryrun-compute_embeddings"
+  },
+  "steps": [
+    {
+      "step": "ingest_documents",
+      "job": "01_ingest_documents.py",
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "docker-compose.phase2.yml",
+        "run",
+        "--rm",
+        "--no-deps",
+        "spark-submit",
+        "/bin/bash",
+        "-lc",
+        "/bin/bash /workspace/scripts/spark_submit_phase2.sh /workspace/pipeline/jobs/01_ingest_documents.py --limit 10"
+      ],
+      "started_ts": "2026-04-27T13:20:39.690523+00:00",
+      "ended_ts": "2026-04-27T13:20:39.690533+00:00",
+      "wall_seconds": 0.0,
+      "returncode": 0,
+      "metrics": {
+        "INGEST_RUN_ID": "dryrun-ingest_documents"
+      }
+    },
+    {
+      "step": "clean_documents",
+      "job": "02_clean_documents.py",
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "docker-compose.phase2.yml",
+        "run",
+        "--rm",
+        "--no-deps",
+        "spark-submit",
+        "/bin/bash",
+        "-lc",
+        "/bin/bash /workspace/scripts/spark_submit_phase2.sh /workspace/pipeline/jobs/02_clean_documents.py --source-run-id dryrun-ingest_documents"
+      ],
+      "started_ts": "2026-04-27T13:20:39.690547+00:00",
+      "ended_ts": "2026-04-27T13:20:39.690551+00:00",
+      "wall_seconds": 0.0,
+      "returncode": 0,
+      "metrics": {
+        "CLEAN_RUN_ID": "dryrun-clean_documents"
+      }
+    },
+    {
+      "step": "chunk_documents",
+      "job": "03_chunk_documents.py",
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "docker-compose.phase2.yml",
+        "run",
+        "--rm",
+        "--no-deps",
+        "spark-submit",
+        "/bin/bash",
+        "-lc",
+        "/bin/bash /workspace/scripts/spark_submit_phase2.sh /workspace/pipeline/jobs/03_chunk_documents.py --source-run-id dryrun-clean_documents"
+      ],
+      "started_ts": "2026-04-27T13:20:39.690557+00:00",
+      "ended_ts": "2026-04-27T13:20:39.690565+00:00",
+      "wall_seconds": 0.0,
+      "returncode": 0,
+      "metrics": {
+        "CHUNK_RUN_ID": "dryrun-chunk_documents"
+      }
+    },
+    {
+      "step": "build_extraction_requests",
+      "job": "04_build_extraction_requests.py",
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "docker-compose.phase2.yml",
+        "run",
+        "--rm",
+        "--no-deps",
+        "spark-submit",
+        "/bin/bash",
+        "-lc",
+        "/bin/bash /workspace/scripts/spark_submit_phase2.sh /workspace/pipeline/jobs/04_build_extraction_requests.py --source-run-id dryrun-chunk_documents"
+      ],
+      "started_ts": "2026-04-27T13:20:39.690570+00:00",
+      "ended_ts": "2026-04-27T13:20:39.690574+00:00",
+      "wall_seconds": 0.0,
+      "returncode": 0,
+      "metrics": {
+        "EXTRACTION_REQUEST_RUN_ID": "dryrun-build_extraction_requests"
+      }
+    },
+    {
+      "step": "run_extraction",
+      "job": "05_run_extraction.py",
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "docker-compose.phase2.yml",
+        "run",
+        "--rm",
+        "--no-deps",
+        "spark-submit",
+        "/bin/bash",
+        "-lc",
+        "/bin/bash /workspace/scripts/spark_submit_phase2.sh /workspace/pipeline/jobs/05_run_extraction.py --source-run-id dryrun-build_extraction_requests --limit 100"
+      ],
+      "started_ts": "2026-04-27T13:20:39.690580+00:00",
+      "ended_ts": "2026-04-27T13:20:39.690583+00:00",
+      "wall_seconds": 0.0,
+      "returncode": 0,
+      "metrics": {
+        "EXTRACTION_RAW_RUN_ID": "dryrun-run_extraction"
+      }
+    },
+    {
+      "step": "validate_extraction",
+      "job": "06_validate_extraction.py",
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "docker-compose.phase2.yml",
+        "run",
+        "--rm",
+        "--no-deps",
+        "spark-submit",
+        "/bin/bash",
+        "-lc",
+        "/bin/bash /workspace/scripts/spark_submit_phase2.sh /workspace/pipeline/jobs/06_validate_extraction.py --source-run-id dryrun-run_extraction --chunk-run-id dryrun-chunk_documents"
+      ],
+      "started_ts": "2026-04-27T13:20:39.690588+00:00",
+      "ended_ts": "2026-04-27T13:20:39.690590+00:00",
+      "wall_seconds": 0.0,
+      "returncode": 0,
+      "metrics": {
+        "VALIDATE_EXTRACTION_RUN_ID": "dryrun-validate_extraction"
+      }
+    },
+    {
+      "step": "build_graph_base",
+      "job": "07_build_graph_base.py",
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "docker-compose.phase2.yml",
+        "run",
+        "--rm",
+        "--no-deps",
+        "spark-submit",
+        "/bin/bash",
+        "-lc",
+        "/bin/bash /workspace/scripts/spark_submit_phase2.sh /workspace/pipeline/jobs/07_build_graph_base.py --source-run-id dryrun-validate_extraction"
+      ],
+      "started_ts": "2026-04-27T13:20:39.690594+00:00",
+      "ended_ts": "2026-04-27T13:20:39.690597+00:00",
+      "wall_seconds": 0.0,
+      "returncode": 0,
+      "metrics": {
+        "GRAPH_BASE_RUN_ID": "dryrun-build_graph_base"
+      }
+    },
+    {
+      "step": "build_node_context",
+      "job": "08_build_node_context.py",
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "docker-compose.phase2.yml",
+        "run",
+        "--rm",
+        "--no-deps",
+        "spark-submit",
+        "/bin/bash",
+        "-lc",
+        "/bin/bash /workspace/scripts/spark_submit_phase2.sh /workspace/pipeline/jobs/08_build_node_context.py --source-run-id dryrun-build_graph_base"
+      ],
+      "started_ts": "2026-04-27T13:20:39.690600+00:00",
+      "ended_ts": "2026-04-27T13:20:39.690603+00:00",
+      "wall_seconds": 0.0,
+      "returncode": 0,
+      "metrics": {
+        "NODE_CONTEXT_RUN_ID": "dryrun-build_node_context"
+      }
+    },
+    {
+      "step": "build_concept_requests",
+      "job": "09_build_concept_requests.py",
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "docker-compose.phase2.yml",
+        "run",
+        "--rm",
+        "--no-deps",
+        "spark-submit",
+        "/bin/bash",
+        "-lc",
+        "/bin/bash /workspace/scripts/spark_submit_phase2.sh /workspace/pipeline/jobs/09_build_concept_requests.py --graph-base-run-id dryrun-build_graph_base --node-context-run-id dryrun-build_node_context"
+      ],
+      "started_ts": "2026-04-27T13:20:39.690607+00:00",
+      "ended_ts": "2026-04-27T13:20:39.690610+00:00",
+      "wall_seconds": 0.0,
+      "returncode": 0,
+      "metrics": {
+        "CONCEPT_REQUEST_RUN_ID": "dryrun-build_concept_requests"
+      }
+    },
+    {
+      "step": "run_concept_generation",
+      "job": "10_run_concept_generation.py",
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "docker-compose.phase2.yml",
+        "run",
+        "--rm",
+        "--no-deps",
+        "spark-submit",
+        "/bin/bash",
+        "-lc",
+        "/bin/bash /workspace/scripts/spark_submit_phase2.sh /workspace/pipeline/jobs/10_run_concept_generation.py --source-run-id dryrun-build_concept_requests --graph-base-run-id dryrun-build_graph_base --selection-strategy priority --limit 100"
+      ],
+      "started_ts": "2026-04-27T13:20:39.690614+00:00",
+      "ended_ts": "2026-04-27T13:20:39.690618+00:00",
+      "wall_seconds": 0.0,
+      "returncode": 0,
+      "metrics": {
+        "CONCEPT_RAW_RUN_ID": "dryrun-run_concept_generation"
+      }
+    },
+    {
+      "step": "validate_concepts",
+      "job": "11_validate_concepts.py",
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "docker-compose.phase2.yml",
+        "run",
+        "--rm",
+        "--no-deps",
+        "spark-submit",
+        "/bin/bash",
+        "-lc",
+        "/bin/bash /workspace/scripts/spark_submit_phase2.sh /workspace/pipeline/jobs/11_validate_concepts.py --concept-request-run-id dryrun-build_concept_requests --missing-concepts-run-id dryrun-build_graph_base --raw-run-ids dryrun-run_concept_generation"
+      ],
+      "started_ts": "2026-04-27T13:20:39.690622+00:00",
+      "ended_ts": "2026-04-27T13:20:39.690626+00:00",
+      "wall_seconds": 0.0,
+      "returncode": 0,
+      "metrics": {
+        "VALIDATE_CONCEPT_RUN_ID": "dryrun-validate_concepts"
+      }
+    },
+    {
+      "step": "merge_concepts",
+      "job": "12_merge_concepts.py",
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "docker-compose.phase2.yml",
+        "run",
+        "--rm",
+        "--no-deps",
+        "spark-submit",
+        "/bin/bash",
+        "-lc",
+        "/bin/bash /workspace/scripts/spark_submit_phase2.sh /workspace/pipeline/jobs/12_merge_concepts.py --graph-base-run-id dryrun-build_graph_base --concept-run-id dryrun-validate_concepts"
+      ],
+      "started_ts": "2026-04-27T13:20:39.690632+00:00",
+      "ended_ts": "2026-04-27T13:20:39.690635+00:00",
+      "wall_seconds": 0.0,
+      "returncode": 0,
+      "metrics": {
+        "MERGE_CONCEPT_RUN_ID": "dryrun-merge_concepts"
+      }
+    },
+    {
+      "step": "compute_embeddings",
+      "job": "14_compute_embeddings.py",
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "docker-compose.phase2.yml",
+        "run",
+        "--rm",
+        "--no-deps",
+        "spark-submit",
+        "/bin/bash",
+        "-lc",
+        "/bin/bash /workspace/scripts/spark_submit_phase2.sh /workspace/pipeline/jobs/14_compute_embeddings.py --graph-base-run-id dryrun-build_graph_base --node-context-run-id dryrun-build_node_context --merge-run-id dryrun-merge_concepts --limit 100"
+      ],
+      "started_ts": "2026-04-27T13:20:39.690639+00:00",
+      "ended_ts": "2026-04-27T13:20:39.690642+00:00",
+      "wall_seconds": 0.0,
+      "returncode": 0,
+      "metrics": {
+        "EMBEDDING_RUN_ID": "dryrun-compute_embeddings"
+      }
+    }
+  ]
+}

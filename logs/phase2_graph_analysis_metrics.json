@@ -1,0 +1,346 @@
+{
+  "scope": "global",
+  "source_label": "global-minio",
+  "source_run_id": "all discovered run_ids",
+  "run_ids": {
+    "graph_base": [
+      "graphbase-20260427032115",
+      "graphbase-20260427133026"
+    ],
+    "concept_validation": [
+      "validconcept-20260427061939",
+      "validconcept-20260427065257",
+      "validconcept-20260427134230"
+    ],
+    "merge_concepts": [
+      "mergeconcept-20260427113806",
+      "mergeconcept-20260427134455"
+    ]
+  },
+  "counts": {
+    "triple_nodes": 18928,
+    "triple_edges": 27091,
+    "distinct_semantic_triples": 26883,
+    "distinct_directed_pairs": 26634,
+    "relations": 1670,
+    "text_nodes": 210,
+    "text_edges": 23498,
+    "concept_nodes": 2431,
+    "concept_edges": 4013,
+    "triple_edges_enriched": 27091,
+    "reciprocal_directed_pairs": 80
+  },
+  "node_type_counts": {
+    "entity": 10360,
+    "event": 8568
+  },
+  "edge_type_counts": {
+    "Relation": 27091
+  },
+  "density": {
+    "directed_density_by_rows": 7.562032279468909e-05,
+    "directed_density_by_distinct_pairs": 7.434467820729206e-05,
+    "avg_degree_by_rows": 2.8625316990701606,
+    "avg_degree_by_distinct_pairs": 2.8142434488588335
+  },
+  "degree": {
+    "zero_degree_nodes": 0,
+    "avg_degree": 2.8625316990701606,
+    "max_degree": 820,
+    "p50_degree": 2.0,
+    "p90_degree": 5.0,
+    "p99_degree": 820.0
+  },
+  "components": {
+    "weak_component_count": 1578,
+    "largest_weak_component_size": 14814,
+    "largest_weak_component_ratio": 0.7826500422654269,
+    "top_weak_component_sizes": [
+      14814,
+      39,
+      39,
+      26,
+      23,
+      17,
+      14,
+      13,
+      13,
+      11
+    ]
+  },
+  "provenance": {
+    "nodes_with_source_text": 18928,
+    "text_nodes_with_edges": 210,
+    "orphan_text_edges": 0,
+    "avg_source_texts_per_node": 1.2414412510566357,
+    "max_source_texts_per_node": 87,
+    "avg_nodes_per_text": 111.8952380952381,
+    "max_nodes_per_text": 531
+  },
+  "concept": {
+    "coverage_by_type_status": {
+      "relation/NOT_REQUESTED": 1444,
+      "event/MAPPED": 361,
+      "entity/NOT_REQUESTED": 9796,
+      "event/NOT_REQUESTED": 8207,
+      "entity/MAPPED": 508,
+      "relation/MAPPED": 86,
+      "relation/EMPTY": 140,
+      "entity/EMPTY": 56
+    },
+    "enriched_status_by_column": {
+      "src_concept_status": {
+        "NOT_REQUESTED": 21352,
+        "EMPTY": 217,
+        "MAPPED": 5522
+      },
+      "dst_concept_status": {
+        "NOT_REQUESTED": 17880,
+        "EMPTY": 730,
+        "MAPPED": 8481
+      },
+      "relation_concept_status": {
+        "NOT_REQUESTED": 2278,
+        "EMPTY": 23665,
+        "MAPPED": 1148
+      }
+    },
+    "orphan_concept_edges": 0
+  },
+  "quality": {
+    "orphan_enriched_src": 0,
+    "orphan_enriched_dst": 0,
+    "enriched_delta_vs_triple_edges": 0
+  },
+  "top_relations": [
+    {
+      "relation": "is participated by",
+      "count": 19107
+    },
+    {
+      "relation": "because",
+      "count": 572
+    },
+    {
+      "relation": "before",
+      "count": 415
+    },
+    {
+      "relation": "thuộc",
+      "count": 366
+    },
+    {
+      "relation": "after",
+      "count": 331
+    },
+    {
+      "relation": "at the same time",
+      "count": 329
+    },
+    {
+      "relation": "as a result",
+      "count": 301
+    },
+    {
+      "relation": "bao gồm",
+      "count": 224
+    },
+    {
+      "relation": "có",
+      "count": 171
+    },
+    {
+      "relation": "gồm",
+      "count": 116
+    },
+    {
+      "relation": "là",
+      "count": 116
+    },
+    {
+      "relation": "tổ chức",
+      "count": 94
+    },
+    {
+      "relation": "đi_qua",
+      "count": 90
+    },
+    {
+      "relation": "tham gia",
+      "count": 83
+    },
+    {
+      "relation": "kết nối",
+      "count": 77
+    }
+  ],
+  "top_nodes": [
+    {
+      "node_name": "Trường Đại học Công nghệ",
+      "node_type": "entity",
+      "degree": 820,
+      "in_degree": 521,
+      "out_degree": 299
+    },
+    {
+      "node_name": "Nhà trường",
+      "node_type": "entity",
+      "degree": 415,
+      "in_degree": 310,
+      "out_degree": 105
+    },
+    {
+      "node_name": "sinh viên",
+      "node_type": "entity",
+      "degree": 341,
+      "in_degree": 276,
+      "out_degree": 65
+    },
+    {
+      "node_name": "Trường ĐH Công nghệ",
+      "node_type": "entity",
+      "degree": 298,
+      "in_degree": 200,
+      "out_degree": 98
+    },
+    {
+      "node_name": "Trường ĐHCN",
+      "node_type": "entity",
+      "degree": 257,
+      "in_degree": 179,
+      "out_degree": 78
+    },
+    {
+      "node_name": "Sinh viên",
+      "node_type": "entity",
+      "degree": 231,
+      "in_degree": 164,
+      "out_degree": 67
+    },
+    {
+      "node_name": "Đại học Quốc gia Hà Nội",
+      "node_type": "entity",
+      "degree": 195,
+      "in_degree": 155,
+      "out_degree": 40
+    },
+    {
+      "node_name": "ĐHQGHN",
+      "node_type": "entity",
+      "degree": 188,
+      "in_degree": 158,
+      "out_degree": 30
+    },
+    {
+      "node_name": "Trường Đại học Công nghệ, Đại học Quốc gia Hà Nội",
+      "node_type": "entity",
+      "degree": 157,
+      "in_degree": 135,
+      "out_degree": 22
+    },
+    {
+      "node_name": "Việt Nam",
+      "node_type": "entity",
+      "degree": 148,
+      "in_degree": 127,
+      "out_degree": 21
+    },
+    {
+      "node_name": "ứng viên",
+      "node_type": "entity",
+      "degree": 98,
+      "in_degree": 89,
+      "out_degree": 9
+    },
+    {
+      "node_name": "doanh nghiệp",
+      "node_type": "entity",
+      "degree": 93,
+      "in_degree": 84,
+      "out_degree": 9
+    },
+    {
+      "node_name": "Trường Đại học Công nghệ – Đại học Quốc gia Hà Nội",
+      "node_type": "entity",
+      "degree": 88,
+      "in_degree": 66,
+      "out_degree": 22
+    },
+    {
+      "node_name": "Cầu Giấy",
+      "node_type": "entity",
+      "degree": 87,
+      "in_degree": 79,
+      "out_degree": 8
+    },
+    {
+      "node_name": "Trường Đại học Công nghệ – ĐHQGHN",
+      "node_type": "entity",
+      "degree": 87,
+      "in_degree": 68,
+      "out_degree": 19
+    }
+  ],
+  "top_source_nodes": [
+    {
+      "node_name": "Trường Đại học Công nghệ",
+      "source_text_count": 87
+    },
+    {
+      "node_name": "sinh viên",
+      "source_text_count": 62
+    },
+    {
+      "node_name": "ĐHQGHN",
+      "source_text_count": 56
+    },
+    {
+      "node_name": "Đại học Quốc gia Hà Nội",
+      "source_text_count": 53
+    },
+    {
+      "node_name": "Nhà trường",
+      "source_text_count": 49
+    },
+    {
+      "node_name": "Tuyết Nga",
+      "source_text_count": 44
+    },
+    {
+      "node_name": "Trường ĐH Công nghệ",
+      "source_text_count": 38
+    },
+    {
+      "node_name": "Việt Nam",
+      "source_text_count": 36
+    },
+    {
+      "node_name": "Sinh viên",
+      "source_text_count": 33
+    },
+    {
+      "node_name": "doanh nghiệp",
+      "source_text_count": 32
+    },
+    {
+      "node_name": "nghiên cứu",
+      "source_text_count": 30
+    },
+    {
+      "node_name": "giảng viên",
+      "source_text_count": 27
+    },
+    {
+      "node_name": "Trường",
+      "source_text_count": 26
+    },
+    {
+      "node_name": "năm 2024",
+      "source_text_count": 26
+    },
+    {
+      "node_name": "Trường ĐHCN",
+      "source_text_count": 25
+    }
+  ]
+}

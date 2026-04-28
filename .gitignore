@@ -1,0 +1,13 @@
+.env
+.env.example
+/dags/
+/docs/
+/scripts/inspect_*.py
+/graph-base-explanation.md
+/kq-construct-pipeline.md
+/pipeline-example.md
+/TODO.md
+
+__pycache__/
+*.py[cod]
+.pytest_cache/
