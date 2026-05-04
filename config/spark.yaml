@@ -2,15 +2,15 @@
 # .env is reserved for secrets, endpoints, and deployment/runtime overrides.
 
 app_name: kg-construct-phase2
-worker_count: 1
+worker_count: 2
 
 executor:
-  instances: 1
-  cores: 2
-  memory: 4g
+  instances: 2
+  cores: 1
+  memory: 2g
 
 driver:
-  memory: 2g
+  memory: 1g
 
 shuffle_partitions: 8
 default_parallelism: 4

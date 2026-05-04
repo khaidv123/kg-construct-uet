@@ -1,7 +1,12 @@
 .env
 .env.example
 /dags/
+/backups/
+/benchmarks/
+/reports/
+/batch-prompt/
 /docs/
+/analysis/
 /scripts/inspect_*.py
 /graph-base-explanation.md
 /kq-construct-pipeline.md
