@@ -1,5 +1,4 @@
 .env
-.env.example
 /dags/
 /backups/
 /benchmarks/
@@ -16,3 +15,17 @@
 __pycache__/
 *.py[cod]
 .pytest_cache/
+
+# Logs and Data
+logs/*
+!logs/.gitkeep
+
+*.log
+/raw_web_page_data/
+
+# IDE and Virtual Environments
+.vscode/
+.idea/
+.venv/
+venv/
+.DS_Store
